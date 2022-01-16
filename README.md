@@ -45,6 +45,6 @@ docker run -p 8000:5050 fampay_youtube_assignment
 * To filter with range on the basis of publishedAt(GET): "http://localhost:8000/api/filter"
     * Query Parameters -start_date: Date(%y-%m-%d), end_date: Date(%y-%m-%d)
 
-*To add YouTube v3 API key(POST): "http://localhost:8000/api/add_key"
+* To add YouTube v3 API key(POST): "http://localhost:8000/api/add_key"
     * Body -api_key: key
    
