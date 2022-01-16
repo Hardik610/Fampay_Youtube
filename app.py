@@ -216,6 +216,19 @@ def filter_data():
         })
 
 
+@app.route('/api/add_key', methods=['POST'])
+def add_key():
+    api_key = APIKey(
+        api_key=request.form['api_key']
+    )
+    db.session.add(api_key)
+    db.session.commit()
+    return jsonify({
+        "message": 'API key inserted',
+        "status": "Success"
+    })
+
+
 if __name__ == '__main__':
     print("Server started")
     scheduler.add_job(youtube_api_caller, 'interval', seconds=10)
