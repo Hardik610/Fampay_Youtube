@@ -18,11 +18,19 @@ To make an API to fetch the latest videos sorted in reverse chronological order 
 - To view the stored videos with filters(with date range) and sorting options
 - Optimise search api, so that it's able to search videos containing partial match for the search query in either video title or description.
 
+### Built With
+1. Python
+2. Flask
+3. Sqlite3
+4. Docker
+
 ## Setup for local development
 - Clone the repository:
 ```
 git clone https://github.com/Hardik610/fampay_youtube.git
 ```
+- Create virtual environment `virtualenv venv` and activate it `source venv/bin/activate`
+
 - Then get all the requirements for the project:- 
 ```
 pip3 install -r requirements.txt
@@ -44,9 +52,69 @@ docker run -p 8000:5050 fampay_youtube_assignment
 ## API Endpoints
 * To get all videos(GET): "http://localhost:8000/api/get_video_data/"
     * Query Parameters -page:int, per_page:int, sort_type:[Ascending, Descending]
+    * Response (Default set to descending order on the basis of publishedAt)
+    ```
+    {
+    "data": [
+        {
+            "channelTitle": "Austor - FIFA Prediction & More",
+            "description": "FIFA 22 Football Facts that sound Fake but are True Part 2! ft. Cristiano Ronaldo, Haaland, Mbappe, Zidane, TOTY! Football Facts ...",
+            "publishedAt": "Sat, 15 Jan 2022 20:51:07 GMT",
+            "thumbnails": "https://i.ytimg.com/vi/UD-vCSZoMS8/default.jpg",
+            "title": "FOOTBALL FACTS That Sound FAKE But Are TRUE! 😵😲"
+        },
+        {
+            "channelTitle": "Sky Sports Football",
+            "description": "SUBSCRIBE ▻ http://bit.ly/SSFootballSub PREMIER LEAGUE HIGHLIGHTS ▻ http://bit.ly/SkySportsPLHighlights2122 Philippe ...",
+            "publishedAt": "Sat, 15 Jan 2022 20:04:57 GMT",
+            "thumbnails": "https://i.ytimg.com/vi/dNCHnqC6SFA/default.jpg",
+            "title": "&quot;I&#39;ve missed the Premier League!&quot; | Coutinho &amp; Ramsey on Aston Villa&#39;s comeback vs Man Utd"
+        },
+        {...},
+        {...}
+    ],
+    "meta": {
+        "has_next": true,
+        "has_prev": false,
+        "next_page": 2,
+        "page": 1,
+        "pages": 7,
+        "prev_page": null,
+        "total_count": 34
+    },
+    "status": "success"
+   }
+    ```
+    
 
 * To search with a query(GET): "http://localhost:8000/api/search"
     * Query Parameters -text:any
+    * Response for text="video this"
+    ```
+    {
+    "data": [
+        {
+            "channelTitle": "Tiktok Football",
+            "description": "In this video I've compiled football reels and tiktok videos. The main cast in the video are Ronaldo Messi Neymar Mbappe and ...",
+            "id": 3,
+            "publishedAt": "2022-01-14 13:59:07.000000",
+            "thumbnail": "https://i.ytimg.com/vi/oedURq9h92Y/default.jpg",
+            "title": "Football Reels Compilation | Tiktok Football Reels | 2022 #39"
+        },
+        {
+            "channelTitle": "Tiktok Football",
+            "description": "In this video I've compiled football reels and tiktok videos. The main cast in the video are Ronaldo Messi Neymar Mbappe and ...",
+            "id": 9,
+            "publishedAt": "2022-01-14 13:59:07.000000",
+            "thumbnail": "https://i.ytimg.com/vi/oedURq9h92Y/default.jpg",
+            "title": "Football Reels Compilation | Tiktok Football Reels | 2022 #39"
+        },
+        {...},
+        {...},
+    ],
+    "status": "success"
+}
+    ```
 
 * To filter with range on the basis of publishedAt(GET): "http://localhost:8000/api/filter"
     * Query Parameters -start_date: Date(%y-%m-%d), end_date: Date(%y-%m-%d)
