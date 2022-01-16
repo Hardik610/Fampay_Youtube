@@ -12,6 +12,12 @@ To make an API to fetch the latest videos sorted in reverse chronological order 
 - Dockerize the project.
 - It should be scalable and optimised.
 
+## Bonus Points Implemented
+
+- Add support for supplying multiple API keys so that if quota is exhausted on one, it automatically uses the next available key.
+- To view the stored videos with filters(with date range) and sorting options
+- Optimise search api, so that it's able to search videos containing partial match for the search query in either video title or description.
+
 ## Setup for local development
 - Clone the repository:
 ```
