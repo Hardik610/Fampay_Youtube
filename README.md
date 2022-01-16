@@ -36,12 +36,15 @@ docker run -p 8000:5050 fampay_youtube_assignment
 ```
 
 ## API Endpoints
-To get all videos(GET): "http://localhost:8000/api/get_video_data/"
-    - Query Parameters -page:int, per_page:int, sort_type:[Ascending, Descending]
-To search with a query(GET): "http://localhost:8000/api/search"
-    - Query Parameters -text:any
-To filter with range on the basis of publishedAt(GET): "http://localhost:8000/api/filter"
-    - Query Parameters -start_date: Date(%y-%m-%d), end_date: Date(%y-%m-%d)
-To add YouTube v3 API key(POST): "http://localhost:8000/api/add_key"
-    - Body -api_key: key
+* To get all videos(GET): "http://localhost:8000/api/get_video_data/"
+    * Query Parameters -page:int, per_page:int, sort_type:[Ascending, Descending]
+
+* To search with a query(GET): "http://localhost:8000/api/search"
+    * Query Parameters -text:any
+
+* To filter with range on the basis of publishedAt(GET): "http://localhost:8000/api/filter"
+    * Query Parameters -start_date: Date(%y-%m-%d), end_date: Date(%y-%m-%d)
+
+*To add YouTube v3 API key(POST): "http://localhost:8000/api/add_key"
+    * Body -api_key: key
    
